@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/constant/ImagesManager.dart';
 
-
 class Advanced_Drawer extends StatefulWidget {
   @override
   _Advanced_DrawerState createState() => _Advanced_DrawerState();
@@ -80,137 +79,129 @@ class _Advanced_DrawerState extends State<Advanced_Drawer> {
           child: ListTileTheme(
             textColor: Colors.white,
             iconColor: Colors.white,
-            child: Padding(padding: EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: 260,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage(
-                          ImagesManager.ProfileImage,
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+            child: Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: 260,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(
-                            'Alex Nikiforov',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundImage: AssetImage(
+                              ImagesManager.ProfileImage,
+                            ),
                           ),
-                          Text(
-                            'Fashion Designer',
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: ColorManager.SecondaryTextColor),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Alex Nikiforov',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Fashion Designer',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorManager.SecondaryTextColor),
+                              ),
+                            ],
                           ),
+                          IconButton(
+                              onPressed: () {
+                                AppRouter.goTo(screenName: ScreenName.Profile);
+                              },
+                              icon: Icon(Icons.arrow_forward_ios))
                         ],
                       ),
-                      IconButton(
-                          onPressed: () {
-                            AppRouter.goTo(screenName: ScreenName.Profile);
-                          },
-                          icon: Icon(Icons.arrow_forward_ios))
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 55,
-                ),
-                ListTile(
-                  onTap: () {
-                    AppRouter.goTo(screenName: ScreenName.Favorite);
-                  },
-                  leading: SvgPicture.asset(ImagesManager.Myfavorites),
-                  title: Text(
-                    'My favorites',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    AppRouter.goTo(screenName: ScreenName.Wallets);
-                  },
-                  leading: SvgPicture.asset(ImagesManager.Wallets),
-                  title: Text(
-                    'Wallets',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: SvgPicture.asset(ImagesManager.MyOrders),
-                  title: Text(
-                    'My orders',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: SvgPicture.asset(ImagesManager.AboutUs),
-                  title: Text(
-                    'About us',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: SvgPicture.asset(ImagesManager.PrivacyPolicy),
-                  title: Text(
-                    'Privacy policy',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    AppRouter.goTo(screenName: ScreenName.Settings);
-                  },
-                  leading: SvgPicture.asset(ImagesManager.Settings),
-                  title: Text(
-                    'Settings',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                SizedBox(
-                  height: 90,
-                ),
-                ListTile(
-                  onTap: () {
-                    logindata.setBool('login', true);
-                    AppRouter.goToAndRemove(screenName: ScreenName.Login);
-                  },
-                  leading: SvgPicture.asset(ImagesManager.LogOut),
-                  title: Text(
-                    'Log out',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                Spacer(),
-
-                Image.asset(
-                  ImagesManager.Logo,
-                  height: 60,
-                  width: 50,
-                ),
-
-              ],
-            )
-            ),
+                    ),
+                    SizedBox(
+                      height: 55,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        AppRouter.goTo(screenName: ScreenName.Favorite);
+                      },
+                      leading: SvgPicture.asset(ImagesManager.Myfavorites),
+                      title: Text(
+                        'My favorites',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        AppRouter.goTo(screenName: ScreenName.Wallets);
+                      },
+                      leading: SvgPicture.asset(ImagesManager.Wallets),
+                      title: Text(
+                        'Wallets',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {},
+                      leading: SvgPicture.asset(ImagesManager.MyOrders),
+                      title: Text(
+                        'My orders',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {},
+                      leading: SvgPicture.asset(ImagesManager.AboutUs),
+                      title: Text(
+                        'About us',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {},
+                      leading: SvgPicture.asset(ImagesManager.PrivacyPolicy),
+                      title: Text(
+                        'Privacy policy',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        AppRouter.goTo(screenName: ScreenName.Settings);
+                      },
+                      leading: SvgPicture.asset(ImagesManager.Settings),
+                      title: Text(
+                        'Settings',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 90,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        logindata.setBool('login', true);
+                        AppRouter.goToAndRemove(screenName: ScreenName.Login);
+                      },
+                      leading: SvgPicture.asset(ImagesManager.LogOut),
+                      title: Text(
+                        'Log out',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    Spacer(),
+                    Image.asset(
+                      ImagesManager.Logo,
+                      height: 60,
+                      width: 50,
+                    ),
+                  ],
+                )),
           ),
         ),
       ),
     );
-  }
-
-  void _handleMenuButtonPressed() {
-    // NOTICE: Manage Advanced Drawer state through the Controller.
-    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
-    _advancedDrawerController.showDrawer();
   }
 }

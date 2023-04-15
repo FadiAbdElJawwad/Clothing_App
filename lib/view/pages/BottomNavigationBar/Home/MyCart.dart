@@ -40,7 +40,6 @@ class _MyCartState extends State<MyCart> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-
               ListView.separated(
                   shrinkWrap: true,
                   itemBuilder: (context, i) {
@@ -143,10 +142,10 @@ class _MyCartState extends State<MyCart> {
                       ),
                   itemCount: mycartmodel.length),
 
-              SizedBox(
-                height: 150,
-              ),
-
+              // SizedBox(
+              //   height: 150,
+              // ),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -173,6 +172,9 @@ class _MyCartState extends State<MyCart> {
                     AppRouter.goTo(screenName: ScreenName.Checkout);
                   },
                 ),
+              ),
+              SizedBox(
+                height: 10,
               )
             ],
           ),

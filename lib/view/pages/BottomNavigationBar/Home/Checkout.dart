@@ -279,9 +279,10 @@ class _CheckoutState extends State<Checkout> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 45,
-              ),
+              // SizedBox(
+              //   height: 45,
+              // ),
+              Spacer(),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 52),
                   child: ElevatedButton.icon(

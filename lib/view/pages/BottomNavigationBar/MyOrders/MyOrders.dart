@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:clothing_app/core/constant/ColorManager.dart';
 import 'package:clothing_app/data/model/MyOrderModel.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +25,6 @@ class MyOrders extends StatelessWidget {
             unselectedLabelColor: ColorManager.SecondaryTextColor,
             unselectedLabelStyle: TextStyle(fontSize: 14),
             indicatorColor: ColorManager.MainColor,
-
             tabs: [
               Tab(child: Text('Completed')),
               Tab(child: Text('Cancelled')),

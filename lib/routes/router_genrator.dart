@@ -10,15 +10,13 @@ import '../view/pages/BottomNavigationBar/Favorite/Favorite.dart';
 import '../view/pages/BottomNavigationBar/Home/Checkout.dart';
 import '../view/pages/BottomNavigationBar/Home/Home.dart';
 import '../view/pages/BottomNavigationBar/Home/MyCart.dart';
- import '../view/pages/BottomNavigationBar/Home/Payment.dart';
+import '../view/pages/BottomNavigationBar/Home/Payment.dart';
 import '../view/pages/BottomNavigationBar/Home/ProductsDetails/CasualHenleyShirts.dart';
 import '../view/pages/BottomNavigationBar/Home/Search.dart';
 import '../view/pages/BottomNavigationBar/MyOrders/MyOrders.dart';
 import '../view/pages/BottomNavigationBar/Profile/Profile.dart';
 import '../view/pages/Drawer/Advance_drawer.dart';
 import '../view/pages/Drawer/Settings/Settings.dart';
-
-
 
 class RouteGenarator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -42,37 +40,37 @@ class RouteGenarator {
       case ScreenName.Home:
         result = Home();
         break;
-        case ScreenName.Search:
+      case ScreenName.Search:
         result = Search();
         break;
-        case ScreenName.CasualHenleyShirts:
+      case ScreenName.CasualHenleyShirts:
         result = CasualHenleyShirts();
         break;
-        case ScreenName.MyCart:
+      case ScreenName.MyCart:
         result = MyCart();
         break;
-        case ScreenName.Checkout:
+      case ScreenName.Checkout:
         result = Checkout();
         break;
-        case ScreenName.Advanced_Drawer:
+      case ScreenName.Advanced_Drawer:
         result = Advanced_Drawer();
         break;
-        case ScreenName.Payment:
+      case ScreenName.Payment:
         result = Payment();
         break;
-        case ScreenName.Profile:
+      case ScreenName.Profile:
         result = Profile();
         break;
-        case ScreenName.MyOrders:
+      case ScreenName.MyOrders:
         result = MyOrders();
         break;
-        case ScreenName.Favorite:
+      case ScreenName.Favorite:
         result = Favorite();
         break;
-        case ScreenName.Settings:
+      case ScreenName.Settings:
         result = Settings();
         break;
-        case ScreenName.Wallets:
+      case ScreenName.Wallets:
         result = Wallets();
         break;
 

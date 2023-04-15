@@ -8,8 +8,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       AppRouter.goToAndRemove(screenName: ScreenName.Onbording);
     });
     return Scaffold(

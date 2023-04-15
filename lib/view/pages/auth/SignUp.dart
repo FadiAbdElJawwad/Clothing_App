@@ -1,3 +1,4 @@
+// ignore_for_file: unused_field
 import 'package:clothing_app/core/extension/validinput.dart';
 import 'package:clothing_app/routes/app_router.dart';
 import 'package:clothing_app/routes/screen_name.dart';
@@ -20,7 +21,6 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-
   late SharedPreferences logindata;
   late bool newuser;
 
@@ -32,6 +32,7 @@ class _SignUpState extends State<SignUp> {
       AppRouter.goToAndRemove(screenName: ScreenName.Advanced_Drawer);
     }
   }
+
   @override
   void initState() {
     // ignore: todo
@@ -39,6 +40,7 @@ class _SignUpState extends State<SignUp> {
     super.initState();
     check_if_already_login();
   }
+
   @override
   void dispose() {
     // ignore: todo
@@ -48,6 +50,7 @@ class _SignUpState extends State<SignUp> {
     passwordController.dispose();
     super.dispose();
   }
+
   late String _email;
   late String _password;
   late String _name;
@@ -84,7 +87,7 @@ class _SignUpState extends State<SignUp> {
                   height: 25,
                 ),
                 Text_Field(
-                  Validator:  (value) {
+                  Validator: (value) {
                     if (value!.isNullOrEmpty) {
                       return 'Please enter your name';
                     }
@@ -104,7 +107,6 @@ class _SignUpState extends State<SignUp> {
                   height: 10,
                 ),
                 Text_Field(
-
                   Validator: (value) {
                     if (value!.isNullOrEmpty) {
                       return 'Please enter your email address';
@@ -188,19 +190,17 @@ class _SignUpState extends State<SignUp> {
                         if (formstate.currentState!.validate()) {
                           formstate.currentState!.save();
                         }
-                          String Email = emailController.text;
-                          String Name = nameController.text;
-                          String Password = passwordController.text;
-                          if (Name != '' && Email != '' && Password != '') {
-                            logindata.setBool('login', false);
-                            logindata.setString('Email', Email);
-                            logindata.setString('Name', Name);
-                            AppRouter.goToAndRemove(
-                                screenName: ScreenName.Advanced_Drawer);
-                          }
-
-                      }
-                      ),
+                        String Email = emailController.text;
+                        String Name = nameController.text;
+                        String Password = passwordController.text;
+                        if (Name != '' && Email != '' && Password != '') {
+                          logindata.setBool('login', false);
+                          logindata.setString('Email', Email);
+                          logindata.setString('Name', Name);
+                          AppRouter.goToAndRemove(
+                              screenName: ScreenName.Advanced_Drawer);
+                        }
+                      }),
                 ),
                 SizedBox(
                   height: 20,
