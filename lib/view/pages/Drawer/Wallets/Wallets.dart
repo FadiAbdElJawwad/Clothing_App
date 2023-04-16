@@ -103,74 +103,76 @@ class _WalletsState extends State<Wallets> {
           SizedBox(
             height: 25,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 420,
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: mywalletsmodel.length,
-                separatorBuilder: (context, index) => SizedBox(
-                  height: 15,
-                ),
-                itemBuilder: (context, i) {
-                  return Container(
-                    height: 92,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 73,
-                              width: 84,
-                              decoration: BoxDecoration(
-                                  color: ColorManager.ImageBackgroundColor,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20))),
-                            ),
-                            Positioned(
-                              left: 15,
-                              child: Image.asset(
-                                mywalletsmodel[i].image!,
-                                height: 76,
-                                width: 51,
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                // height: 370,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: mywalletsmodel.length,
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 15,
+                  ),
+                  itemBuilder: (context, i) {
+                    return Container(
+                      height: 92,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                height: 73,
+                                width: 84,
+                                decoration: BoxDecoration(
+                                    color: ColorManager.ImageBackgroundColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
                               ),
-                            )
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              mywalletsmodel[i].title!,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 14),
-                            ),
-                            Text(
-                              mywalletsmodel[i].date!,
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: ColorManager.SecondaryTextColor),
-                            )
-                          ],
-                        ),
-                        Text(
-                          mywalletsmodel[i].price!,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: ColorManager.MainColor),
-                        )
-                      ],
-                    ),
-                  );
-                },
+                              Positioned(
+                                left: 15,
+                                child: Image.asset(
+                                  mywalletsmodel[i].image!,
+                                  height: 76,
+                                  width: 51,
+                                ),
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                mywalletsmodel[i].title!,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 14),
+                              ),
+                              Text(
+                                mywalletsmodel[i].date!,
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: ColorManager.SecondaryTextColor),
+                              )
+                            ],
+                          ),
+                          Text(
+                            mywalletsmodel[i].price!,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: ColorManager.MainColor),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           )
