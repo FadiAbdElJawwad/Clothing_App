@@ -200,7 +200,8 @@ class _SignUpState extends State<SignUp> {
                           AppRouter.goToAndRemove(
                               screenName: ScreenName.Advanced_Drawer);
                         }
-                      }),
+                      }
+                      ),
                 ),
                 SizedBox(
                   height: 20,

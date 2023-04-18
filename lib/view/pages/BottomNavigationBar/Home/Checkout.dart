@@ -12,7 +12,7 @@ class Checkout extends StatefulWidget {
 }
 
 class _CheckoutState extends State<Checkout> {
-  bool val1 = true;
+  int _val = 1;
   bool val2 = false;
 
   @override
@@ -50,12 +50,11 @@ class _CheckoutState extends State<Checkout> {
                 height: 25,
               ),
               Container(
-                height: 92,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Row(
+                /*child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -96,59 +95,73 @@ class _CheckoutState extends State<Checkout> {
                       ImagesManager.Edit,
                     )
                   ],
-                ),
+                ),*/
+
+               child: Padding(
+                 padding: EdgeInsets.only(top: 10,bottom: 10 ,right: 20),
+                 child: RadioListTile(
+                   value: 1,
+                   groupValue: _val,
+                   onChanged: (val){
+                     setState(() {
+                       _val = val! ;
+                     });
+                   },
+                   activeColor: ColorManager.MainColor,
+
+                   title: Text(
+                     'Home',
+                     style: TextStyle(fontSize: 16),
+                   ),
+                   subtitle: Text(
+                     '(342)  4522019 \n 220  New York',
+                     style: TextStyle(
+                         fontSize: 12,
+                         color: ColorManager.SecondaryTextColor),
+                   ),
+                   secondary: IconButton(onPressed: (){},
+                       icon: Image.asset(
+                         ImagesManager.Edit,),)
+                 ),
+               ),
               ),
               SizedBox(
                 height: 10,
               ),
               Container(
-                height: 92,
+                // height: 92,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Checkbox(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      checkColor: Colors.white,
-                      fillColor:
-                          MaterialStatePropertyAll(ColorManager.MainColor),
-                      value: val2,
-                      onChanged: (value) {
-                        setState(() {
-                          val2 = value!;
-                        });
-                      },
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Office',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        Text(
-                          '(342)  4522019',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: ColorManager.SecondaryTextColor),
-                        ),
-                        Text('220  Montmartre,paris',
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: ColorManager.SecondaryTextColor)),
-                      ],
-                    ),
-                    Image.asset(
-                      ImagesManager.Edit,
-                    )
-                  ],
+
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10,bottom: 10 ,right: 20),
+                child: RadioListTile(
+                  value: 2,
+                  groupValue: _val,
+                  onChanged: (val){
+                    setState(() {
+                      _val = val! ;
+                    });
+                  },
+                  activeColor: ColorManager.MainColor,
+                  title: Text(
+                    'Office',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  subtitle: Text(
+                    '(342)  4522019 \n 220  Montmartre,paris',
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: ColorManager.SecondaryTextColor),
+                  ),
+                    secondary: IconButton(onPressed: (){},
+                      icon: Image.asset(
+                        ImagesManager.Edit,),)
                 ),
+                ),
+
               ),
               SizedBox(
                 height: 35,
@@ -279,9 +292,7 @@ class _CheckoutState extends State<Checkout> {
                   ),
                 ],
               ),
-              // SizedBox(
-              //   height: 45,
-              // ),
+
               Spacer(),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 52),
@@ -307,9 +318,11 @@ class _CheckoutState extends State<Checkout> {
                     label: Text('Swipe for Payment',
                         style:
                             const TextStyle(fontSize: 16, color: Colors.white)),
-                  ))
+                  )),
+              SizedBox(height: 5,)
             ],
           ),
-        ));
+        )
+    );
   }
 }
