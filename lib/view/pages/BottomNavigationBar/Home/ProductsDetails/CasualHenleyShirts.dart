@@ -116,8 +116,8 @@ class _CasualHenleyShirtsState extends State<CasualHenleyShirts> {
                                 onTap: () {
                                   setState(() {
                                     for (int i = 0;
-                                        i < isSelected.length;
-                                        i++) {
+                                    i < isSelected.length;
+                                    i++) {
                                       if (i == index) {
                                         isSelected[i] = true;
                                       } else {

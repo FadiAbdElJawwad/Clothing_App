@@ -14,6 +14,7 @@ class Onbording extends StatefulWidget {
 class _OnbordingState extends State<Onbording> {
   late PageController _pageController;
   int _currentPage = 0;
+
   @override
   void initState() {
     // ignore: todo
@@ -29,88 +30,93 @@ class _OnbordingState extends State<Onbording> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    (_currentPage + 1).toString() +
-                        "/" +
-                        onbordingList.length.toString(),
-                    style: TextStyle(fontSize: 15),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        AppRouter.goToAndRemove(screenName: ScreenName.Login);
+          child: Column (
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        (_currentPage + 1).toString() +
+                            "/" +
+                            onbordingList.length.toString(),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            AppRouter.goToAndRemove(
+                                screenName: ScreenName.Login);
+                          },
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(color: Colors.black, fontSize: 16),
+                          ))
+                    ],
+                  )),
+              Expanded(
+                flex: 2,
+                child :Padding(padding: EdgeInsets.symmetric(horizontal: 26),
+                child: SizedBox(
+                  width: double.infinity,
+                  // height: 325,
+                  child: PageView.builder(
+                      onPageChanged: (int currentPage) {
+                        setState(() {
+                          _currentPage = currentPage;
+                        });
                       },
-                      child: Text(
-                        'Skip',
-                        style: TextStyle(color: Colors.black, fontSize: 16),
-                      ))
-                ],
-              )),
-          const SizedBox(height: 55),
-          SizedBox(
-            width: double.infinity,
-            height: 325,
-            child: PageView.builder(
-                onPageChanged: (int currentPage) {
-                  setState(() {
-                    _currentPage = currentPage;
-                  });
-                },
-                controller: _pageController,
-                itemCount: onbordingList.length,
-                itemBuilder: (context, i) {
-                  return Image.asset(
-                    // image[i]['image1'],
-                    onbordingList[i].image!,
-                    width: 324,
-                  );
-                }),
-          ),
-          SizedBox(height: 40),
-          Text(
-            // title[_currentPage],
-            onbordingList[_currentPage].title!,
-            style: TextStyle(fontSize: 22),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            onbordingList[_currentPage].body!,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 79),
-            child: Button(
-                text: Indicator[_currentPage],
-                onTap: () {
-                  if(_currentPage > onbordingList.length - 2){
-                    AppRouter.goToAndRemove(screenName: ScreenName.Login);
-                  }else{
-                    _pageController.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
-                  }
+                      controller: _pageController,
+                      itemCount: onbordingList.length,
+                      itemBuilder: (context, i) {
+                        return Image.asset(
+                          // image[i]['image1'],
+                          onbordingList[i].image!,
+                          width: 324,
+                        );
+                      }),
+                ),
+                )
 
-                },
-            ),
+              ),
+              // SizedBox(height: 40),
+              Text(
+                // title[_currentPage],
+                onbordingList[_currentPage].title!,
+                style: TextStyle(fontSize: 22),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                onbordingList[_currentPage].body!,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 79),
+                child: Button(
+                  text: Indicator[_currentPage],
+                  onTap: () {
+                    if (_currentPage > onbordingList.length - 2) {
+                      AppRouter.goToAndRemove(screenName: ScreenName.Login);
+                    } else {
+                      _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    }
+                  },
+                ),
+              ),
+              SizedBox(height: 30,)
+            ],
           ),
-
-        ],
-      ),
-    ));
+        ));
   }
 }

@@ -85,7 +85,9 @@ class _WalletsState extends State<Wallets> {
             child: Row(
               children: [
                 OnBoardingIndicator(selected: _currentPage == 0),
-                OnBoardingIndicator(selected: _currentPage == 1),
+                Padding(padding: EdgeInsets.symmetric(horizontal: 8),
+                child: OnBoardingIndicator(selected: _currentPage == 1),
+                ),
                 OnBoardingIndicator(selected: _currentPage == 2),
               ],
             ),
@@ -189,13 +191,18 @@ class OnBoardingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 8,
-      width: 15,
+/*    return Container(
+      height: selected? 15 : 11,
+
+      width: selected? 15 : 11,
       decoration: BoxDecoration(
           color:
               selected ? ColorManager.MainColor : ColorManager.SecondaryColor,
           shape: BoxShape.circle),
-    );
+    );*/
+  return CircleAvatar(
+    radius: selected? 8 : 6,
+    backgroundColor: selected ? ColorManager.MainColor : ColorManager.SecondaryColor,
+  );
   }
 }

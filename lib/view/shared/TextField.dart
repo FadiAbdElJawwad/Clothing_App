@@ -1,3 +1,4 @@
+import 'package:clothing_app/core/constant/ColorManager.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -26,15 +27,26 @@ class Text_Field extends StatelessWidget {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 57,
-      width: double.infinity,
-      child: TextFormField(
+    return TextFormField(
+
         controller: Controller,
         validator: Validator,
         obscureText: obscureText,
         keyboardType: keyboardType,
+
         decoration: InputDecoration(
+
+          focusedErrorBorder:  OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          focusedBorder:  OutlineInputBorder(
+            borderSide: BorderSide(color: ColorManager.MainColor),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          errorBorder:  OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
             filled: true,
             border: const OutlineInputBorder(
               borderSide: BorderSide.none,
@@ -42,14 +54,14 @@ class Text_Field extends StatelessWidget {
             ),
             prefixIcon: PrefixIcon,
             suffixIcon: SuffixIcon,
-            contentPadding: const EdgeInsets.only(left: 30),
+            contentPadding: const EdgeInsets.only(left: 30, top: 10,bottom: 10),
             hintText: hint,
             hintStyle: const TextStyle(
               fontSize: 12,
               color: Color(0xff230A06),
             ),
             fillColor: Colors.white),
-      ),
+
     );
   }
 }

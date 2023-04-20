@@ -19,8 +19,9 @@ class _Bottom_SheetState extends State<Bottom_Sheet> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         child: SizedBox(
-          height: 560,
+          // height: 560,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(

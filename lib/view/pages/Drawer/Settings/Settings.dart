@@ -13,6 +13,7 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   bool val1 = true;
   bool val2 = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +27,9 @@ class _SettingsState extends State<Settings> {
           style: TextStyle(fontSize: 20, color: Colors.black),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            Row(
+      body: SafeArea(child: Column(
+        children: [
+/*            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
@@ -50,121 +49,76 @@ class _SettingsState extends State<Settings> {
                 IconButton(
                     onPressed: () {}, icon: Icon(Icons.keyboard_arrow_right))
               ],
+            ),*/
+          ListTile(
+            onTap: () {},
+            leading: SvgPicture.asset(ImagesManager.EmailSupport),
+            title: Text(
+              'Email Support',
+              style: TextStyle(fontSize: 14),
             ),
-            SizedBox(
-              height: 25,
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.black,),
+          ),
+
+          ListTile(
+            onTap: () {},
+            leading: SvgPicture.asset(ImagesManager.FAQ),
+            title: Text(
+              'FAQ',
+              style: TextStyle(fontSize: 14),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(right: 17),
-                          child: SvgPicture.asset(ImagesManager.FAQ)),
-                      Text(
-                        'FAQ',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                    onPressed: () {}, icon: Icon(Icons.keyboard_arrow_right))
-              ],
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.black,),
+          ),
+
+          ListTile(
+            onTap: () {},
+            leading: SvgPicture.asset(ImagesManager.PrivacyPolicy),
+            title: Text(
+              'Privacy Stetesment',
+              style: TextStyle(fontSize: 14),
             ),
-            SizedBox(
-              height: 25,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(right: 17),
-                          child: SvgPicture.asset(ImagesManager.PrivacyPolicy)),
-                      Text(
-                        'Privacy Stetesment',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                    onPressed: () {}, icon: Icon(Icons.keyboard_arrow_right))
-              ],
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 17),
-                        child: Icon(
-                          Icons.notifications,
-                          color: ColorManager.MainColor,
-                        ),
-                      ),
-                      Text(
-                        'Notification',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                Switch(
-                  activeTrackColor: ColorManager.MainColor,
-                  activeColor: Colors.white,
-                  value: val1,
-                  onChanged: (value) {
-                    setState(() {
-                      val1 = value;
-                    });
-                  },
-                )
-              ],
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(right: 17),
-                          child: SvgPicture.asset(ImagesManager.Update)),
-                      Text(
-                        'Update',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                Switch(
-                  activeTrackColor: ColorManager.MainColor,
-                  activeColor: Colors.white,
-                  value: val2,
-                  onChanged: (value) {
-                    setState(() {
-                      val2 = value;
-                    });
-                  },
-                )
-              ],
-            ),
-          ],
-        ),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.black,),
+          ),
+
+          ListTile(
+              leading: Icon(
+                Icons.notifications, color: ColorManager.MainColor,),
+              title: Text(
+                'Notification',
+                style: TextStyle(fontSize: 14),
+              ),
+              trailing: Switch(
+                activeTrackColor: ColorManager.MainColor,
+                activeColor: Colors.white,
+                value: val1,
+                onChanged: (value) {
+                  setState(() {
+                    val1 = value;
+                  });
+                },
+              )
+          ),
+
+          ListTile(
+              leading: SvgPicture.asset(ImagesManager.Update),
+              title: Text(
+                'Update',
+                style: TextStyle(fontSize: 14),
+              ),
+              trailing: Switch(
+                activeTrackColor: ColorManager.MainColor,
+                activeColor: Colors.white,
+                value: val2,
+                onChanged: (value) {
+                  setState(() {
+                    val2 = value;
+                  });
+                },
+              )
+          ),
+
+        ],
+      )
       ),
     );
   }

@@ -13,7 +13,8 @@ class Checkout extends StatefulWidget {
 
 class _CheckoutState extends State<Checkout> {
   int _val = 1;
-  bool val2 = false;
+  // bool val1 = false;
+  // bool val2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,8 @@ class _CheckoutState extends State<Checkout> {
               SizedBox(
                 height: 25,
               ),
-              Container(
+              Expanded(flex: 2,
+                  child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -97,38 +99,39 @@ class _CheckoutState extends State<Checkout> {
                   ],
                 ),*/
 
-               child: Padding(
-                 padding: EdgeInsets.only(top: 10,bottom: 10 ,right: 20),
-                 child: RadioListTile(
-                   value: 1,
-                   groupValue: _val,
-                   onChanged: (val){
-                     setState(() {
-                       _val = val! ;
-                     });
-                   },
-                   activeColor: ColorManager.MainColor,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10,bottom: 10 ,right: 20),
+                  child: RadioListTile(
+                      value: 1,
+                      groupValue: _val,
+                      onChanged: (val){
+                        setState(() {
+                          _val = val! ;
+                        });
+                      },
+                      activeColor: ColorManager.MainColor,
 
-                   title: Text(
-                     'Home',
-                     style: TextStyle(fontSize: 16),
-                   ),
-                   subtitle: Text(
-                     '(342)  4522019 \n 220  New York',
-                     style: TextStyle(
-                         fontSize: 12,
-                         color: ColorManager.SecondaryTextColor),
-                   ),
-                   secondary: IconButton(onPressed: (){},
-                       icon: Image.asset(
-                         ImagesManager.Edit,),)
-                 ),
-               ),
-              ),
+                      title: Text(
+                        'Home',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      subtitle: Text(
+                        '(342)  4522019 \n 220  New York',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: ColorManager.SecondaryTextColor),
+                      ),
+                      secondary: IconButton(onPressed: (){},
+                        icon: Image.asset(
+                          ImagesManager.Edit,),)
+                  ),
+                ),
+              )),
               SizedBox(
                 height: 10,
               ),
-              Container(
+              Expanded(flex: 2,
+                child: Container(
                 // height: 92,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -137,35 +140,37 @@ class _CheckoutState extends State<Checkout> {
 
                 child: Padding(
                   padding: EdgeInsets.only(top: 10,bottom: 10 ,right: 20),
-                child: RadioListTile(
-                  value: 2,
-                  groupValue: _val,
-                  onChanged: (val){
-                    setState(() {
-                      _val = val! ;
-                    });
-                  },
-                  activeColor: ColorManager.MainColor,
-                  title: Text(
-                    'Office',
-                    style: TextStyle(fontSize: 16),
+                  child: RadioListTile(
+                      value: 2,
+                      groupValue: _val,
+                      onChanged: (val){
+                        setState(() {
+                          _val = val! ;
+                        });
+                      },
+                      activeColor: ColorManager.MainColor,
+                      title: Text(
+                        'Office',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      subtitle: Text(
+                        '(342)  4522019 \n 220  Montmartre,paris',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: ColorManager.SecondaryTextColor),
+                      ),
+                      secondary: IconButton(onPressed: (){},
+                        icon: Image.asset(
+                          ImagesManager.Edit,),)
                   ),
-                  subtitle: Text(
-                    '(342)  4522019 \n 220  Montmartre,paris',
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: ColorManager.SecondaryTextColor),
-                  ),
-                    secondary: IconButton(onPressed: (){},
-                      icon: Image.asset(
-                        ImagesManager.Edit,),)
-                ),
                 ),
 
               ),
-              SizedBox(
-                height: 35,
               ),
+            /*  SizedBox(
+                height: 35,
+              ),*/
+              Spacer(),
               Text(
                 'Billing information',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -173,63 +178,71 @@ class _CheckoutState extends State<Checkout> {
               SizedBox(
                 height: 15,
               ),
-              Container(
-                  height: 135,
+              Expanded(flex: 3,
+                child: Container(
+                // height: 135,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
+                  child: Padding(padding: EdgeInsets.symmetric(vertical: 0),
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Delivery Fee     : ',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: ColorManager.SecondaryTextColor)),
-                          Text(
-                            '\$50',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Delivery Fee     : ',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: ColorManager.SecondaryTextColor)),
+                              Text(
+                                '\$50',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          // SizedBox(height: 10,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Subtotal            :',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: ColorManager.SecondaryTextColor)),
+                              Text(
+                                '\$740',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          // SizedBox(height: 8,),
+                          Divider(),
+                          // SizedBox(height: 8,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Total                   :',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: ColorManager.SecondaryTextColor)),
+                              Text(
+                                '\$790',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
                         ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text('Subtotal            :',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: ColorManager.SecondaryTextColor)),
-                          Text(
-                            '\$740',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text('Total                   :',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: ColorManager.SecondaryTextColor)),
-                          Text(
-                            '\$790',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                    ],
-                  )),
-              SizedBox(
-                height: 35,
+                      ))
               ),
+              ),
+              /*SizedBox(
+                height: 35,
+              ),*/
+              Spacer(),
               Text(
                 'Payment Method',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

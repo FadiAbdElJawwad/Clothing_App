@@ -63,13 +63,13 @@ class _LoginState extends State<Login> {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
             child: Form(
-          autovalidateMode: AutovalidateMode.always,
+          // autovalidateMode: AutovalidateMode.always,
           key: formstate,
-          child: Column(
+          child: SafeArea(child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 100),
+                padding: EdgeInsets.only(top: 30),
                 child: Image.asset(
                   ImagesManager.Logo,
                   width: 55,
@@ -88,13 +88,7 @@ class _LoginState extends State<Login> {
               ),
               Text_Field(
                 Validator: (value) {
-                  if (value!.isNullOrEmpty) {
-                    return 'Please enter your email address';
-                  }
-                  if (!value.isEmail) {
-                    return 'Please enter a valid email address';
-                  }
-                  return '';
+                  return value!.ValidatEmail;
                 },
                 onSaved: (value) => _email = value!,
                 Controller: emailController,
@@ -111,13 +105,14 @@ class _LoginState extends State<Login> {
               ),
               Text_Field(
                 Validator: (value) {
-                  if (value!.isNullOrEmpty) {
-                    return 'Please enter your password';
-                  }
-                  if (!value.isPassword) {
-                    return 'Password must be at least 6 characters long';
-                  }
-                  return '';
+                  return value!.ValidatPassword;
+                  // if (value!.isNullOrEmpty) {
+                  //   return 'Please enter your password';
+                  // }
+                  // if (!value.isPassword) {
+                  //   return 'Password must be at least 6 characters long';
+                  // }
+                  // return '';
                 },
                 onSaved: (value) => _password = value!,
                 Controller: passwordController,
@@ -154,17 +149,22 @@ class _LoginState extends State<Login> {
                       onTap: () {
                         if (formstate.currentState!.validate()) {
                           formstate.currentState!.save();
-                        }
-                        String Email = emailController.text;
-                        String Password = passwordController.text;
-                        if (Email != '' && Password != '') {
                           logindata.setBool('login', false);
-                          logindata.setString('Email', Email);
-
                           AppRouter.goToAndRemove(
                               screenName: ScreenName.Advanced_Drawer);
+                          // logindata.setString('Email', emailController.text);
+
+
+                          // if (Email != '' && Password != '') {
+                            //   logindata.setBool('login', false);
+                            //   logindata.setString('Email', Email);
+
+
+
+                          // }
                         }
-                      })),
+                      }
+                  )),
               SizedBox(
                 height: 20,
               ),
@@ -257,7 +257,7 @@ class _LoginState extends State<Login> {
                 ],
               )
             ],
-          ),
+          )),
         )),
       ),
     );

@@ -45,8 +45,7 @@ class _Advanced_DrawerState extends State<Advanced_Drawer> {
       animateChildDecoration: true,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
-        // NOTICE: Uncomment if you want to add shadow behind the page.
-        // Keep in mind that it may cause animation jerks.
+
         boxShadow: <BoxShadow>[
           BoxShadow(
               color: Colors.black12,
@@ -77,15 +76,13 @@ class _Advanced_DrawerState extends State<Advanced_Drawer> {
       drawer: SafeArea(
         child: Container(
           child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
+              // textColor: Colors.white,
+              // iconColor: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  /*Container(
                       width: 260,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -119,86 +116,118 @@ class _Advanced_DrawerState extends State<Advanced_Drawer> {
                               icon: Icon(Icons.arrow_forward_ios))
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 55,
-                    ),
-                    ListTile(
-                      onTap: () {
-                        AppRouter.goTo(screenName: ScreenName.Favorite);
-                      },
-                      leading: SvgPicture.asset(ImagesManager.Myfavorites),
-                      title: Text(
-                        'My favorites',
-                        style: TextStyle(color: Colors.black),
+                    ),*/
+                  ListTile(
+                    leading: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage(
+                        ImagesManager.ProfileImage,
                       ),
                     ),
-                    ListTile(
-                      onTap: () {
-                        AppRouter.goTo(screenName: ScreenName.Wallets);
-                      },
-                      leading: SvgPicture.asset(ImagesManager.Wallets),
-                      title: Text(
-                        'Wallets',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                    title: Text(
+                      'Alex Nikiforov',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
                     ),
-                    ListTile(
-                      onTap: () {},
-                      leading: SvgPicture.asset(ImagesManager.MyOrders),
-                      title: Text(
-                        'My orders',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                    subtitle: Text(
+                      'Fashion Designer',
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: ColorManager.SecondaryTextColor),
                     ),
-                    ListTile(
-                      onTap: () {},
-                      leading: SvgPicture.asset(ImagesManager.AboutUs),
-                      title: Text(
-                        'About us',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios, color: Colors.black,),
+                    onTap: () {
+                      AppRouter.goTo(screenName: ScreenName.Profile);
+                    },
+
+                  ),
+                  /*SizedBox(
+                    height: 55,
+                  ),*/
+                  Spacer(flex: 1,),
+                  ListTile(
+                    onTap: () {
+                      AppRouter.goTo(screenName: ScreenName.Favorite);
+                    },
+                    leading: SvgPicture.asset(ImagesManager.Myfavorites),
+                    title: Text(
+                      'My favorites',
+                      style: TextStyle(color: Colors.black),
                     ),
-                    ListTile(
-                      onTap: () {},
-                      leading: SvgPicture.asset(ImagesManager.PrivacyPolicy),
-                      title: Text(
-                        'Privacy policy',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      AppRouter.goTo(screenName: ScreenName.Wallets);
+                    },
+                    leading: SvgPicture.asset(ImagesManager.Wallets),
+                    title: Text(
+                      'Wallets',
+                      style: TextStyle(color: Colors.black),
                     ),
-                    ListTile(
-                      onTap: () {
-                        AppRouter.goTo(screenName: ScreenName.Settings);
-                      },
-                      leading: SvgPicture.asset(ImagesManager.Settings),
-                      title: Text(
-                        'Settings',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: SvgPicture.asset(ImagesManager.MyOrders),
+                    title: Text(
+                      'My orders',
+                      style: TextStyle(color: Colors.black),
                     ),
-                    SizedBox(
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: SvgPicture.asset(ImagesManager.AboutUs),
+                    title: Text(
+                      'About us',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    leading: SvgPicture.asset(ImagesManager.PrivacyPolicy),
+                    title: Text(
+                      'Privacy policy',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      AppRouter.goTo(screenName: ScreenName.Settings);
+                    },
+                    leading: SvgPicture.asset(ImagesManager.Settings),
+                    title: Text(
+                      'Settings',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  /* SizedBox(
                       height: 90,
+                    ),*/
+                  Spacer(flex: 2,),
+                  ListTile(
+                    onTap: () {
+                      logindata.setBool('login', true);
+                      AppRouter.goToAndRemove(screenName: ScreenName.Login);
+                    },
+                    leading: SvgPicture.asset(ImagesManager.LogOut),
+                    title: Text(
+                      'Log out',
+                      style: TextStyle(color: Colors.black),
                     ),
-                    ListTile(
-                      onTap: () {
-                        logindata.setBool('login', true);
-                        AppRouter.goToAndRemove(screenName: ScreenName.Login);
-                      },
-                      leading: SvgPicture.asset(ImagesManager.LogOut),
-                      title: Text(
-                        'Log out',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    Spacer(),
-                    Image.asset(
+                  ),
+                  Spacer(flex: 2,),
+                  Padding(padding: EdgeInsets.only(left: 15),
+                    child: Image.asset(
                       ImagesManager.Logo,
                       height: 60,
                       width: 50,
                     ),
-                  ],
-                )),
+                  ),
+                  SizedBox(height: 5,)
+                ],
+              )
           ),
         ),
       ),
