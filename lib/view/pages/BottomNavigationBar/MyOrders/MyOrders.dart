@@ -33,76 +33,80 @@ class MyOrders extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: 35,
-                ),
-                ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: myordermodel.length,
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 15,
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 35,
                   ),
-                  itemBuilder: (context, i) {
-                    return Container(
-                      height: 92,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            children: [
-                              Container(
-                                height: 73,
-                                width: 84,
-                                decoration: BoxDecoration(
-                                    color: ColorManager.ImageBackgroundColor,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20))),
-                              ),
-                              Positioned(
-                                left: 15,
-                                child: Image.asset(
-                                  myordermodel[i].image!,
-                                  height: 76,
-                                  width: 51,
+                  ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: myordermodel.length,
+                    separatorBuilder: (context, index) => SizedBox(
+                      height: 15,
+                    ),
+                    itemBuilder: (context, i) {
+                      return Container(
+                        height: 92,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Stack(
+                              children: [
+                                Container(
+                                  height: 73,
+                                  width: 84,
+                                  decoration: BoxDecoration(
+                                      color: ColorManager.ImageBackgroundColor,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20))),
                                 ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                myordermodel[i].title!,
-                                style: TextStyle(
-                                    color: ColorManager.SecondaryTextColor,
-                                    fontSize: 14),
-                              ),
-                              Text(
-                                myordermodel[i].price!,
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                          Text(
-                            myordermodel[i].date!,
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: ColorManager.SecondaryTextColor),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                )
-              ],
+                                Positioned(
+                                  left: 15,
+                                  child: Image.asset(
+                                    myordermodel[i].image!,
+                                    height: 76,
+                                    width: 51,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  myordermodel[i].title!,
+                                  style: TextStyle(
+                                      color: ColorManager.SecondaryTextColor,
+                                      fontSize: 14),
+                                ),
+                                Text(
+                                  myordermodel[i].price!,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                            Text(
+                              myordermodel[i].date!,
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: ColorManager.SecondaryTextColor),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  )
+                ],
+              ),
             )
           ],
         ),

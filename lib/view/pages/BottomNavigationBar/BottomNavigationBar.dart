@@ -23,6 +23,7 @@ class _Bottom_Navigation_BarState extends State<Bottom_Navigation_Bar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: PageStorage(
           bucket: bucket,
           child: currentScreen,

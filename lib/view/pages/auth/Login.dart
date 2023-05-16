@@ -11,6 +11,8 @@ import '../../Shared/TextField.dart';
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
+
+
   @override
   State<Login> createState() => _LoginState();
 }
@@ -153,14 +155,9 @@ class _LoginState extends State<Login> {
                           AppRouter.goToAndRemove(
                               screenName: ScreenName.Advanced_Drawer);
                           // logindata.setString('Email', emailController.text);
-
-
                           // if (Email != '' && Password != '') {
                             //   logindata.setBool('login', false);
                             //   logindata.setString('Email', Email);
-
-
-
                           // }
                         }
                       }

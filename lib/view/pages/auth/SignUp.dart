@@ -156,8 +156,8 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 16,
                     ),
-                    Row(children: [
-                      Checkbox(
+                    ListTile(
+                      leading: Checkbox(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         checkColor: Colors.white,
@@ -170,7 +170,7 @@ class _SignUpState extends State<SignUp> {
                           });
                         },
                       ),
-                      RichText(
+                      title: RichText(
                         text: TextSpan(
                           text: 'I accept all the ',
                           style: TextStyle(fontSize: 14, color: Colors.black),
@@ -183,7 +183,7 @@ class _SignUpState extends State<SignUp> {
                           ],
                         ),
                       ),
-                    ]),
+                    ),
                     SizedBox(
                       height: 17,
                     ),
@@ -192,9 +192,6 @@ class _SignUpState extends State<SignUp> {
                       child: Button(
                           text: 'Sign Up',
                           onTap: () {
-                            String Email = emailController.text;
-                            String Name = nameController.text;
-                            String Password = passwordController.text;
                             if (formstate.currentState!.validate()) {
                               formstate.currentState!.save();
                               logindata.setBool('login', false);

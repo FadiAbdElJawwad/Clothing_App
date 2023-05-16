@@ -2,13 +2,11 @@ import 'package:clothing_app/core/constant/ColorManager.dart';
 import 'package:clothing_app/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../core/constant/ImagesManager.dart';
 import '../../../../data/model/HomeModel.dart';
 import '../../../../routes/screen_name.dart';
 import '../../../Shared/TextField.dart';
 import '../../../shared/BottomSheet.dart';
-
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -38,103 +36,108 @@ class _SearchState extends State<Search> {
               icon: SvgPicture.asset(ImagesManager.Notification))
         ],
       ),
-
       body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 40,),
-                Text_Field(
-                  hint: 'Shirt',
-                  PrefixIcon: Icon(Icons.search),
-                  SuffixIcon: IconButton(
-                      iconSize: 5,
-                      onPressed: () {
-                        showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(30)
-                              )
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 40,
+              ),
+              Text_Field(
+                hint: 'Shirt',
+                PrefixIcon: Icon(Icons.search),
+                SuffixIcon: IconButton(
+                    iconSize: 5,
+                    onPressed: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(30))),
+                        context: context,
+                        builder: (context) {
+                          return Bottom_Sheet();
+                        },
+                      );
+                    },
+                    icon: Container(
+                        height: 43,
+                        width: 47,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: ColorManager.MainColor,
+                        ),
+                        child: Center(
+                          child: SvgPicture.asset(
+                            ImagesManager.Filter,
                           ),
-                          context: context,
-                          builder: (context) {
-                            return Bottom_Sheet();
-                          },
-                        );
-                      },
-                      icon: Container(
-                          height: 43,
-                          width: 47,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            color: ColorManager.MainColor,
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              ImagesManager.Filter,
-                            ),
-                          ))),
-                  obscureText: false,
+                        ))),
+                obscureText: false,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ListTile(
+                title: Text(
+                  'Recent searches',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Recent searches', style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),),
-                    IconButton(onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_right))
-                  ],
-                ),
-                Divider(),
-                Text("Search results showing for “Shirt”", style: TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold)),
-                SizedBox(height: 15,),
-                Container(
-                  height: 490,
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: () {},
+              ),
+              Divider(),
+              Text("Search results showing for “Shirt”",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 15,
+              ),
+              Expanded(
+                // height: 490,
+                child: Container(
                   child: GridView.builder(
                     shrinkWrap: true,
                     itemCount: newarrivalmodel.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        mainAxisSpacing: 15
-                    ),
+                        mainAxisSpacing: 15,
+                        crossAxisSpacing: 20),
                     itemBuilder: (context, i) {
                       return InkWell(
-                        onTap: (){
-                          AppRouter.goTo(screenName: ScreenName.CasualHenleyShirts);                        },
+                        onTap: () {
+                          AppRouter.goTo(
+                              screenName: ScreenName.CasualHenleyShirts);
+                        },
                         child: Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
                               color: Colors.white),
-                          height: 190,
-                          width: 155,
+                          // height: 190,
+                          // width: 155,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Image.asset(newarrivalmodel[i].image!, height: 132,
-                                width: 100,),
+                              Image.asset(
+                                newarrivalmodel[i].image!,
+                                height: 132,
+                                width: 100,
+                              ),
                               Text(newarrivalmodel[i].title!),
-                              Text(newarrivalmodel[i].price!,
-                                style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text(
+                                newarrivalmodel[i].price!,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         ),
                       );
                     },
                   ),
-                )
-              ],
-            ),
-          )
-      ),
-
+                ),
+              )
+            ],
+          )),
     );
   }
 }
-
-
-

@@ -15,6 +15,7 @@ class _OnbordingState extends State<Onbording> {
   late PageController _pageController;
   int _currentPage = 0;
 
+
   @override
   void initState() {
     // ignore: todo
@@ -23,14 +24,13 @@ class _OnbordingState extends State<Onbording> {
     _pageController = PageController();
   }
 
-
   List Indicator = ["Next >", " Next >>", "Get Started >>> "];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-          child: Column (
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
@@ -56,28 +56,28 @@ class _OnbordingState extends State<Onbording> {
                     ],
                   )),
               Expanded(
-                flex: 2,
-                child :Padding(padding: EdgeInsets.symmetric(horizontal: 26),
-                child: SizedBox(
-                  width: double.infinity,
-                  // height: 325,
-                  child: PageView.builder(
-                      onPageChanged: (int currentPage) {
-                        setState(() {
-                          _currentPage = currentPage;
-                        });
-                      },
-                      controller: _pageController,
-                      itemCount: onbordingList.length,
-                      itemBuilder: (context, i) {
-                        return Image.asset(
-                          // image[i]['image1'],
-                          onbordingList[i].image!,
-                          width: 324,
-                        );
-                      }),
-                ),
-                )
+                  flex: 2,
+                  child: Padding(padding: EdgeInsets.symmetric(horizontal: 26),
+                    child: SizedBox(
+                      width: double.infinity,
+                      // height: 325,
+                      child: PageView.builder(
+                          onPageChanged: (int currentPage) {
+                            setState(() {
+                              _currentPage = currentPage;
+                            });
+                          },
+                          controller: _pageController,
+                          itemCount: onbordingList.length,
+                          itemBuilder: (context, i) {
+                            return Image.asset(
+                              // image[i]['image1'],
+                              onbordingList[i].image!,
+                              width: 324,
+                            );
+                          }),
+                    ),
+                  )
 
               ),
               // SizedBox(height: 40),

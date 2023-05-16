@@ -36,7 +36,26 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Profile',
+          style: TextStyle(
+              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.black,
+              ))
+        ],
+      ),
+
       backgroundColor: ColorManager.BackgroundColor,
       body: Stack(
         children: [
@@ -44,34 +63,36 @@ class _ProfileState extends State<Profile> {
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                physics: NeverScrollableScrollPhysics(),
+                child: SafeArea(child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 140,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Profile',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.black,
-                              ))
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
+                    // SizedBox(
+                    //   height: 30,
+                    // ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(
+                    //     left: 140,
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       Text('Profile',
+                    //           style: TextStyle(
+                    //               fontSize: 20, fontWeight: FontWeight.bold)),
+                    //       IconButton(
+                    //           onPressed: () {},
+                    //           icon: Icon(
+                    //             Icons.more_vert,
+                    //             color: Colors.black,
+                    //           ))
+                    //     ],
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 25,
+                    // ),
+                    SizedBox(height: 30,),
                     CircleAvatar(
                       radius: 70,
                       backgroundImage: AssetImage(
@@ -84,7 +105,7 @@ class _ProfileState extends State<Profile> {
                     Text(
                       'Alex Nikiforov',
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 5,
@@ -103,9 +124,10 @@ class _ProfileState extends State<Profile> {
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: profilemodel.length,
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 10,
-                        ),
+                        separatorBuilder: (context, index) =>
+                            SizedBox(
+                              width: 10,
+                            ),
                         itemBuilder: (context, i) {
                           return Container(
                             height: 117,
@@ -161,113 +183,124 @@ class _ProfileState extends State<Profile> {
                       height: 15,
                     ),
                     Container(
-                        height: 195,
-                        width: 333,
+                        // height: 195,
+                        // width: 333,
                         decoration: BoxDecoration(
                             border: Border.all(color: Color(0xffF0F0F2)),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
+                            BorderRadius.all(Radius.circular(15))),
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                              child: ListView(
+                                shrinkWrap: true,
+                                // mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text(
-                                    'Name :',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorManager.SecondaryTextColor),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Name :',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: ColorManager.SecondaryTextColor),
+                                      ),
+                                      Text(
+                                        'Alex Nikiforov',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
                                   ),
-                                  Text(
-                                    'Alex Nikiforov',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
+                                  SizedBox(height: 15,),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Email :',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: ColorManager.SecondaryTextColor),
+                                      ),
+                                      Text(
+                                        'alex@msn.com',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 15,),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Location :',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: ColorManager.SecondaryTextColor),
+                                      ),
+                                      Text(
+                                        'San Diego',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 15,),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Zip Code :',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: ColorManager.SecondaryTextColor),
+                                      ),
+                                      Text(
+                                        '1200',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 15,),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Phone Number :',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: ColorManager.SecondaryTextColor),
+                                      ),
+                                      Text(
+                                        '(+1)5484 4757 84',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Email :',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorManager.SecondaryTextColor),
-                                  ),
-                                  Text(
-                                    'alex@msn.com',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Location :',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorManager.SecondaryTextColor),
-                                  ),
-                                  Text(
-                                    'San Diego',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Zip Code :',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorManager.SecondaryTextColor),
-                                  ),
-                                  Text(
-                                    '1200',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Phone Number :',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: ColorManager.SecondaryTextColor),
-                                  ),
-                                  Text(
-                                    '(+1)5484 4757 84',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                            ],
+                            ),
                           ),
                         ))
                   ],
                 ),
               ))
+          )
         ],
       ),
     );
